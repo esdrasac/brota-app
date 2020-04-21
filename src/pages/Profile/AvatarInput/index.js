@@ -1,10 +1,16 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+
 import { useField } from '@rocketseat/unform'
 import api from '../../../services/api'
+
+import { updateProfileRequest } from '../../../store/modules/user/actions';
 
 import { Container } from './styles';
 
 export default function AvatarInput() {
+  const dispathc = useDispatch();
+
   const { defaultValue, registerField } = useField('avatar')
 
   const [file, setFile] = useState(defaultValue && defaultValue.id)
@@ -26,11 +32,12 @@ export default function AvatarInput() {
     const data = new FormData()
 
     data.append('file', e.target.files[0])
-
     const response = await api.post('files', data)
 
+
+    await dispathc(updateProfileRequest({avatar_id: response.data.id}));
+
     const { id, url } = response.data
-    console.log(response.data)
     setFile(id)
     setPreview(url)
   }

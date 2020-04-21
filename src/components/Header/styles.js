@@ -1,8 +1,8 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Container = styled.div`
   height: 64px;
-  background: linear-gradient(#212121, transparent);
+  background: #222;
   padding: 0 30px;
 `;
 
@@ -21,7 +21,7 @@ export const Content = styled.div`
     img {
       margin-right: 20px;
       padding-right: 20px;
-      border-right: 1px solid #212121
+      border-right: 1px solid #212121;
     }
 
     a {
@@ -35,7 +35,6 @@ export const Content = styled.div`
     display: flex;
     align-items: center;
   }
-
 `;
 
 export const Profile = styled.div`
@@ -57,13 +56,12 @@ export const Profile = styled.div`
       display: block;
       margin-top: 2px;
       font-size: 12px;
-      color: #666
+      color: #666;
     }
-
   }
-    img {
-      height: 32px;
-      width: 32px;
-      border-radius: 50%;
-    }
+  img {
+    height: 32px;
+    width: 32px;
+    border-radius: 50%;
+  }
 `;

@@ -6,16 +6,13 @@ import { updateProfileSuccess, updateProfileFailure } from './actions';
 import api from '../../../services/api'
 
 export function* updateProfile({ payload }) {
-  console.log(payload.data)
   try {
-    const { name, email, avatar_id, ...rest} = payload.data
+    const { name, email, avatar_id, bio, ...rest} = payload.data
 
   const profile = Object.assign(
-    { name, email, avatar_id },
+    { name, email, avatar_id, bio },
     rest.oldPassword ? rest : {}
   )
-
-  console.log(profile)
 
   const response = yield call(api.put, 'user', profile)
 
