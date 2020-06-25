@@ -63,7 +63,7 @@ export default function Profile() {
             <label>Biografia: </label>
           </div>
           <div className="input-bio">
-            <Textarea name="bio" defaultValue={profile.bio} placeholder="Fale um pouco sobre você" maxLength="80"/>
+            <Textarea name="bio" defaultValue={profile.bio} rows="3" placeholder="Fale um pouco sobre você" maxLength="80"/>
           </div>
 
         </div>

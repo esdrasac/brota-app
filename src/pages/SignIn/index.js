@@ -5,6 +5,7 @@ import { Form, Input } from '@rocketseat/unform';
 import * as Yup from 'yup';
 
 import { signInRequest } from '../../store/modules/auth/actions';
+import { loadFeedRequest } from '../../store/modules/feed/actions';
 
 import logo from '../../assets/logo2.png';
 
@@ -21,6 +22,8 @@ export default function SignIn() {
 
   function handleSubmit({ email, password }) {
     dispatch(signInRequest(email, password));
+    dispatch(loadFeedRequest())
+
   }
   return (
     <>

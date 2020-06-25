@@ -1,5 +1,18 @@
+import PerfectScrollbar from 'react-perfect-scrollbar'
 import styled from 'styled-components';
 import { darken } from 'polished';
+
+export const Scroll = styled(PerfectScrollbar)`
+  max-height: 90%;
+  display: flex;
+  flex-direction: column;
+  padding: 5px 15px;
+
+  width: 100%;
+  text-align: center;
+  align-content: center;
+  align-self: center;
+`;
 
 export const Container = styled.div`
 
@@ -13,39 +26,45 @@ export const Container = styled.div`
     ul {
       margin-top: 50px;
       list-style: none;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      grid-gap: 30px;
-
-      li {
       display: flex;
       flex-direction: column;
+      align-items: center;
 
-      img {
-        max-width: 100%;
-        border-radius: 5px 5px 0 0;
-      }
+      li {
 
-      footer {
-        flex: 1;
-        background: #fff;
-        border: 1px solid #eee;
-        padding: 15px 20px;
-        text-align: left;
-        border-radius: 0 0 5px 5px;
+        display: flex;
+        flex-direction: column;
+        width: 250px;
 
-        strong {
-          font-size: 16px;
-          color: #333;
-          }
+        .photo {
+          width: 100%;
+          height: 300px;
+          object-fit: cover;
+          object-position: center;
 
-        p {
-          font-size: 14px;
-          line-height: 20px;
-          color: #888;
-          margin-top: 5px;
-          }
+          border-radius: 5px 5px 0 0;
         }
+
+        footer {
+          flex: 1;
+          background: #fff;
+          border: 1px solid #eee;
+          padding: 15px 20px;
+          text-align: left;
+          border-radius: 0 0 5px 5px;
+
+          strong {
+            font-size: 16px;
+            color: #333;
+            }
+
+          p {
+            font-size: 14px;
+            line-height: 20px;
+            color: #888;
+            margin-top: 5px;
+            }
+          }
         div {
           width: 100%;
           display: grid;

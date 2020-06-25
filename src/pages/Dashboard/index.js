@@ -8,7 +8,7 @@ import like from '../../assets/sucesso.svg'
 import dislike from '../../assets/cruz.svg'
 import photoDefault from '../../assets/photo-default.png'
 
-import { Container } from './styles';
+import { Container, Scroll} from './styles';
 
 export default function Dashboard() {
   const token = useSelector(state => state.auth.token);
@@ -49,32 +49,32 @@ export default function Dashboard() {
   }
 
   return (
-    <Container>
-      <div className="dashboard-container">
-          { users.length > 0 ? (
-            <ul>
-              {users.map(user => (
-                <li key={user.id}>
-                  <img src={user.avatar_id.path || photoDefault} alt=""/>
-                  <footer>
-                    <strong>{user.name}</strong>
-                    <p>{user.bio}</p>
-                  </footer>
-                  <div className="buttons">
-                    <button type="button" onClick={() => handleDislike(user.id)}>
-                      <img src={dislike} alt="bomb!"/>
-                    </button>
-                    <button type="button" onClick={() => handleLike(user.id)}>
-                      <img src={like} alt="brota"/>
-                    </button>
-                  </div>
-                </li>
-              ))}
-            </ul>
-          ) : (
-            <div className="empty">Nada Brotando! :(</div>
-          )}
-      </div>
-    </Container>
+    <Scroll>
+      <Container>
+        <div className="dashboard-container">
+            { users.length > 0 ? (
+              <ul>
+                  <li key={users[0].id}>
+                    <img className="photo" src={users[0].avatar_id.path || photoDefault} alt=""/>
+                    <footer>
+                      <strong>{users[0].name}</strong>
+                      <p>{users[0].bio}</p>
+                    </footer>
+                    <div className="buttons">
+                      <button type="button" onClick={() => handleDislike(users[0].id)}>
+                        <img src={dislike} alt="bomb!"/>
+                      </button>
+                      <button type="button" onClick={() => handleLike(users[0].id)}>
+                        <img src={like} alt="brota"/>
+                      </button>
+                    </div>
+                  </li>
+              </ul>
+            ) : (
+              <div className="empty">Nada Brotando! :(</div>
+            )}
+        </div>
+      </Container>
+    </Scroll>
   )
 }

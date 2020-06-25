@@ -1,5 +1,18 @@
 import styled from 'styled-components';
+import PerfectScrollbar from 'react-perfect-scrollbar'
 import { darken } from 'polished';
+
+export const Scroll = styled(PerfectScrollbar)`
+  max-height: 90%;
+  display: flex;
+  flex-direction: column;
+  padding: 5px 15px;
+
+  width: 100%;
+  text-align: center;
+  align-content: center;
+  align-self: center;
+`;
 
 export const Container = styled.div`
   max-width: 600px;
@@ -8,6 +21,7 @@ export const Container = styled.div`
   form {
     display: flex;
     flex-direction: column;
+    height: 400px;
     margin-top: 0px;
 
     .edit {
@@ -61,7 +75,7 @@ export const Container = styled.div`
               width: 200px;
               margin-top: -4px;
               flex: 1;
-              background: rgba(255, 255, 255, 0.9);
+              background: #fff;
               border: 1px solid #eee;
               padding: 15px 20px;
               text-align: left;
@@ -80,128 +94,117 @@ export const Container = styled.div`
                 color: #888;
                 margin-top: 5px;
               }
+
+              textarea {
+                resize: none;
+                height: 60px;
+                border: 0;
+                background: transparent;
+                color: #444;
+                font-size: 14px;
+                font-family: Roboto, sans-serif;
+                cursor: default;
+
+              &::placeholder {
+                font-style: italic;
+                font-size: 13px;
+              }
+          }
             }
           }
-        }
-
-        .bio {
-          margin-top: 10px;
-          width: 200px;
-          grid-area: bio;
-          display: flex;
-
-          background: rgba(255, 255, 255, 0.9);
-          display: flex;
-          flex-direction: column;
-          border-radius: 5px;
-          height: 80px;
-
-          label {
-            border-radius: 5px 5px 0 0;
-            padding: 0 5px;
-            width: 100%;
-            height: 35%;
-            background: #999;
-            font-size: 13px;
-            font-weight: bolder;
-            color: #333;
-
-          }
-
-          textarea {
-            resize: none;
-            padding: 10px;
-            height: 100px;
-            border: 0;
-            background: transparent;
-            color: #444;
-            font-size: 14px;
-            font-family: Roboto, sans-serif;
-            cursor: default;
-
-            &::placeholder {
-              font-style: italic;
-              font-size: 13px;
-            }
-          }
-
-
-
         }
       }
 
       .body {
-        height: 100px;
+        height: 150px;
         width: 100%;
-        background: rgba(255, 255, 255, 0.1);
+        background: url("https://images.unsplash.com/photo-1513151233558-d860c5398176?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80");
+        background-size: cover;
         border-radius: 4px;
         display: flex;
         flex-direction: column;
 
-        .body-header{
-          margin-top: 20px;
-          display: grid;
-          grid-template-columns: 1fr 1fr 1fr;
-          grid-gap: 25px;
+          .body-header{
+            margin-top: 80px;
+            height: 70px;
+            border-radius: 0 0 4px 4px;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            background: rgba(0, 0, 0, 0.6);
+            grid-gap: 25px;
 
-          div{
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            cursor: default;
+            div{
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              cursor: default;
 
-            label {
-              color: #999;
-              font-weight: bold;
-              font-size: 16px;
-              margin-top: 10px;
+              label {
+                color: #f4f4f4;
+                font-weight: bold;
+                font-size: 16px;
+                margin-top: 10px;
+              }
             }
-          }
+
         }
+
 
         .body-feed {
           width: 100%;
-          height: 120px;
-          margin-top: 30px;
+          height: 150px;
+          margin-top: 50px;
+          padding: 15px 0 5px;
           display: flex;
           flex-direction: column;
           background: #fff;
           border-radius: 4px;
 
-          label {
-            border-radius: 4px 4px 0 0;
-            padding: 0 5px;
-            background: #999;
-            font-size: 13px;
-            font-weight: bolder;
-            color: #333;
-          }
-
           textarea {
             resize: none;
-            width: 100%;
-            padding: 10px;
-            height: 80px;
+            padding-top: 10px;
+            padding-left: 15px;
+            margin: 0 5% 0 5%;
+            height: 70px;
+            width: 90%;
             border: 0;
-            background: transparent;
+            background: rgba(0, 0, 0, 0.1);
+            border-radius: 30px;
             color: #444;
             font-size: 14px;
             font-family: Roboto, sans-serif;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+
 
             &::placeholder {
               font-style: italic;
               font-size: 13px;
             }
           }
-        }
-          button {
-            align-self: flex-end;
-            width: 20%;
-            height: 40px;
-            background: #d41717;
-            font-weight: bold;
-            font-size: 14px;
+
+          footer {
+            display: flex;
+            flex-direction: column;
+
+            .btn-lancar {
+              width: 100%;
+              margin-top: 5px;
+              border: 0px;
+              background: transparent;
+              height: 25px;
+              font-size: 15px;
+              color: #333;
+
+            &:hover {
+              background: rgba(0, 0, 0, 0.1);
+              transform: translateY(-1px);
+              transition: all .2s;
+              }
+            }
           }
+        }
       }
 
 
@@ -212,6 +215,111 @@ export const Container = styled.div`
 
       }
     }
+
+    div {
+
+
+      ul {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+
+        li {
+          border-radius: 5px;
+          padding-top: 10px;
+          background: #fff;
+          margin-bottom: 15px;
+
+          div {
+            display: flex;
+            flex-direction: column;
+
+            img {
+              margin-left: 10px;
+              height: 50px;
+              width: 50px;
+              border-radius: 50%;
+            }
+
+            header {
+              display: grid;
+              grid-template-columns: 1fr 6fr;
+
+              a {
+                color: #000;
+                font-size: 14px;
+                opacity: 0.8;
+
+                &:hover {
+                opacity: 1;
+                }
+              }
+
+              strong {
+                padding-top: 15px;
+                text-align: start;
+              }
+            }
+
+            p {
+              margin: 10px 20px 0 20px;
+              border-radius: 15px;
+              padding-top: 10px;
+              padding-bottom: 10px;
+              background: rgba(0, 0, 0, 0.1);
+            }
+
+            div {
+              display: grid;
+              grid-template-columns: 1fr 1fr;
+
+              a {
+                font-size: 12px;
+              }
+
+            }
+
+            hr {
+              margin-top: 10px;
+              align-self: center;
+              width: 80%;
+              border-color: rgba(0, 0, 0, 0.1);
+            }
+
+            footer {
+              display: grid;
+              grid-template-columns: 1fr 1fr;
+
+              button {
+                border: 0px;
+                background: transparent;
+                height: 30px;
+                margin-bottom: 5px;
+
+                &:hover {
+                  background: rgba(0, 0, 0, 0.1);
+                  transform: translateY(-1px);
+                  transition: all .2s;
+              }
+
+
+            }
+
+            }
+
+
+            .content {
+              grid-area: feed-content;
+            }
+          }
+
+          }
+
+
+        }
+    }
+
+
   }
 
   button {
@@ -225,7 +333,6 @@ export const Container = styled.div`
     color: rgba(255, 255, 255, 0.8);
     font-size: 16px;
     transition: background 0.2s;
-    height: 45px;
     border: 0;
     border-radius: 4px;
     cursor: pointer;
